@@ -5,13 +5,14 @@ describe 'User pages' do
 
   describe 'Signup page' do
   	before { visit signup_path }
+    
   	it { should have_selector('h1', text: 'Sign up') }
   	it { should have_title(full_title('Sign up')) }
 
   	let(:submit) { 'Create my account' }
 
   	describe 'with invalid information' do
-  		it 'shoult not create a user' do 
+  		it 'should not create a user' do 
   			expect { click_button submit }.not_to change(User, :count)
   		end
   	end
